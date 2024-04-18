@@ -90,7 +90,6 @@ export class DomainCardComponent {
       })
       .then((data) => {
         console.log('Domain deleted successfully:', data);
-        // Handle any UI updates or redirection after deletion
       })
       .catch((error) => {
         console.error('Error deleting domain:', error);

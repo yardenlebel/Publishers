@@ -32,7 +32,6 @@ export class PublishersContainerComponent implements OnInit {
   data: any;
 
   loadData(): void {
-    console.log('in')
     fetch('http://localhost:3000/getData')
       .then((res) => res.json())
       .then((data) => {
@@ -70,11 +69,9 @@ export class PublishersContainerComponent implements OnInit {
         .then(res => res.json())
         .then(data => {
             console.log(data);
-            // Handle success response
         })
         .catch(error => {
             console.error('Error adding publisher:', error);
-            // Handle error
         });
 
         this.showPublisherInput = false;

@@ -5,7 +5,6 @@ const cors = require('cors');
 db.connect('mongodb://127.0.0.1:27017/Publisher')
   .then(() => {
     console.log('Connected to MongoDB');
-    // Start the server once connected to MongoDB
   })
 
 const bodyParser = require('body-parser');
@@ -64,19 +63,16 @@ app.post('/addPublisher', async (req, res) => {
     try {
       const { oldDomainName, newDomain } = req.body;
   
-      // Find the domain in the database and update it
       const existingDomain = await Domain.findOneAndUpdate(
         { domain: oldDomainName },
         { $set: newDomain },
         { new: true }
       );
   
-      // Check if the domain was successfully updated
       if (!existingDomain) {
         return res.status(404).json({ error: 'Domain not found' });
       }
   
-      // Send a success response
       res.status(200).json({ message: 'Domain updated successfully', domain: existingDomain });
     } catch (err) {
       console.error('Error updating domain:', err);
@@ -87,9 +83,6 @@ app.post('/addPublisher', async (req, res) => {
   app.delete('/deleteDomain/:name', async (req, res) => {
     try {
       const domainName = req.params.name;
-  
-      // Implement logic to delete the domain with the given name from your database
-      // For example, using Mongoose with MongoDB
       const deletedDomain = await Domain.findOneAndDelete({ domain: domainName });
   
       if (!deletedDomain) {
