@@ -4,3 +4,31 @@
   font-style: normal;
   color: #345666;
 }
+button {
+  width: 150px;
+  height: 30px;
+  background-color: darksalmon;
+  margin: 10px;
+  font-size: 15px;
+  font-family: cursive;
+  font-weight: bold;
+}
+input.ng-untouched.ng-pristine.ng-valid {
+  width: 400px;
+  height: 20px;
+  font-size: 15px;
+  border: 2px solid darksalmon;
+  font-weight: bold;
+}
+
+select {
+  width: 400px;
+  height: 20px;
+  font-size: 15px;
+  border: 2px solid darksalmon;
+  font-weight: bold;
+}
+
+label {
+  font-family: cursive;
+}
