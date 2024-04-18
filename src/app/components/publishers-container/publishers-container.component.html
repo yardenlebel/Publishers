@@ -1,0 +1,29 @@
+<div class="publishers-container">
+    <div>
+      <button (click)="togglePublisherInput()">Add Publisher</button>
+      <div *ngIf="showPublisherInput">
+        <input type="text" [(ngModel)]="newPublisherName" placeholder="Enter publisher name">
+        <button (click)="addPublisher()">Add</button>
+      </div>
+    </div>
+    <div *ngIf="data !== ''">
+      <button (click)="toggleDomainInputs()">Add Domain</button>
+    </div>
+    <div *ngIf="showDomainInputs">
+      <label>Select Publisher:</label>
+      <select (change)="updateSelectedPublisher($event)">
+        <option value="" disabled>Select a publisher</option>
+        <option *ngFor="let publisher of data" [value]="publisher.publisher">{{ publisher.publisher }}</option>
+      </select>
+      <label>Domain Name:</label>
+      <input type="text" [(ngModel)]="newDomain.domain" placeholder="Enter domain name">
+      <label>Desktop Ads:</label>
+      <input type="number" [(ngModel)]="newDomain.desktopAds" placeholder="Enter desktop ads count">
+      <label>Mobile Ads:</label>
+      <input type="number" [(ngModel)]="newDomain.mobileAds" placeholder="Enter mobile ads count">
+      <button (click)="addDomain()">Add Domain</button>
+    </div>
+    <div>
+      <app-publisher-card *ngFor="let publisher of data" [publisher]="publisher"></app-publisher-card>
+    </div>
+</div>
